@@ -262,7 +262,7 @@ while(1):
 
 cv.destroyAllWindows()
 ```
-# 5 Trackbar as the Color Palette
+# 五 Trackbar as the Color Palette
 目标：将trackbar加入到图片显示窗口中
 用到的函数：cv.getTrackbarPos(), cv.createTrackbar()
 例子：
