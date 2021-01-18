@@ -105,8 +105,89 @@ out.release()
 cv.destroyAllWindows()
 ```
 # 三 Drawing Functions in OpenCV
+## 1 绘制直线
+```
+import numpy as np
+import cv2 as cv
 
+#创建一幅全黑图片作为背景图,分辨率为512*512，每个像素点有三通道像素值，即RGB三通道
+img = np.zeros((512, 512, 3), np.uint8)
 
+#在背景图中绘制一条5px宽的直线，从左下到右上，颜色为blue是因为OpenCV的默认颜色空间是BGR
+cv.line(img, (0,511), (511, 0), (255, 0, 0), 5)
+cv.imshow('line', img)
+cv.waitKey(0)
+```
+## 2 绘制矩形
+```
+import numpy as np
+import cv2 as cv
+
+#创建一幅全黑图片作为背景图,分辨率为512*512，每个像素点有三通道像素值，即RGB三通道
+img = np.zeros((512, 512, 3), np.uint8)
+
+#在背景图中绘制一个线宽5px的矩形，从左下到右上，颜色为blue是因为OpenCV的默认颜色空间是BGR
+cv.rectangle(img, (384,0), (510, 128), (0, 255, 0), 3)
+cv.imshow('line', img)
+cv.waitKey(0)
+```
+## 3 绘制圆
+```
+import numpy as np
+import cv2 as cv
+
+#创建一幅全黑图片作为背景图,分辨率为512*512，每个像素点有三通道像素值，即RGB三通道
+img = np.zeros((512, 512, 3), np.uint8)
+
+#在背景图中绘制一个全填充的圆，从左下到右上，颜色为blue是因为OpenCV的默认颜色空间是BGR.最后的参数-1表示颜色全填充
+cv.circle(img, (250,250), 60, (0, 0, 255), -1)
+cv.imshow('line', img)
+cv.waitKey(0)
+```
+## 4 绘制椭圆
+```
+import numpy as np
+import cv2 as cv
+
+#创建一幅全黑图片作为背景图,分辨率为512*512，每个像素点有三通道像素值，即RGB三通道
+img = np.zeros((512, 512, 3), np.uint8)
+
+#在背景图img中绘制一个椭圆，参数依次为椭圆中点坐标、椭圆长轴与短轴、起始角度（顺时针）、终止角度（顺时针）、不显示角度（逆时针）、颜色、线宽（-1表示颜色全填充 ）
+cv.ellipse(img, (256,256), (100,50), 0, 0, 180, (0, 0, 255), -1)
+cv.imshow('line', img)
+cv.waitKey(0)
+```
+## 5 绘制多边形
+```
+import numpy as np
+import cv2 as cv
+
+#创建一幅全黑图片作为背景图,分辨率为512*512，每个像素点有三通道像素值，即RGB三通道
+img = np.zeros((512, 512, 3), np.uint8)
+
+#在背景图img中绘制一个多边形，参数依次为角点坐标列表、是否封闭（True或False）、颜色、线宽
+pts = np.array([[10,5], [20,30], [70,20],[50,10]],np.int32)
+pts = pts.reshape((-1, 1, 2))
+cv.polylines(img, [pts], True, (0,255,0), 3)
+cv.imshow('line', img)
+cv.waitKey(0)
+```
+## 6 插入文本
+```
+import numpy as np
+import cv2 as cv
+
+#创建一幅全黑图片作为背景图,分辨率为512*512，每个像素点有三通道像素值，即RGB三通道
+img = np.zeros((512, 512, 3), np.uint8)
+
+#在背景图img中插入文本，参数依次为文本内容、插入位置（文本框左下角坐标）、字体、字号、颜色、线宽、线型
+font = cv.FONT_HERSHEY_SIMPLEX
+cv.putText(img, 'THLei666', (10, 500), font, 3, (255,0,0), 2, cv.LINE_AA)
+cv.imshow('line', img)
+cv.waitKey(0)
+```
+# 四 Mouse as a Paint-Brush
+## 1 
 
 ## Reference
 [1] https://docs.opencv.org/master/dc/d4d/tutorial_py_table_of_contents_gui.html
