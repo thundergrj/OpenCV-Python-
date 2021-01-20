@@ -206,6 +206,8 @@ t = (t2-t1)/cv.getTickFrequency()
 * 利用缓存一致性（cache coherence）
 * Never make copies of an array unless it is necessary. Try to use views instead. Array copying is a costly operation.
 
+## Reference
+[1]https://docs.opencv.org/master/d7/d16/tutorial_py_table_of_contents_core.html
 
 
 
