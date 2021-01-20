@@ -3,6 +3,7 @@
 * 学习如何将图片从一种颜色空间转化为另一种颜色空间，如BGR->GRAY, BGR->HSV等
 * 提供一个应用示例，该示例演示了如何从视频中提取有颜色的物体
 * 学习cv.cvtColor(), cv.inRange()等函数
+
 # 二 Geometric Transformations of Images
 # 三 Image Thresholding
 # 四 Smoothing Images
